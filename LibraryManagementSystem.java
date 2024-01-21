@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -5,22 +8,30 @@ import java.util.List;
 public class LibraryManagementSystem {
     private List<Book> libraryCollection;
 
-    // Constructor
     public LibraryManagementSystem() {
         this.libraryCollection = new ArrayList<>();
     }
 
-    // Method to add books from a file
     public void addBooksFromFile(String filePath) {
-        try {
-            // Implementation as provided in the previous response
-            // ...
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] bookInfo = line.split(",");
+                if (bookInfo.length == 3) {
+                    int id = Integer.parseInt(bookInfo[0]);
+                    String title = bookInfo[1];
+                    String author = bookInfo[2];
+                    Book newBook = new Book(id, title, author);
+                    libraryCollection.add(newBook);
+                } else {
+                    System.out.println("Invalid book information format: " + line);
+                }
+            }
         } catch (IOException | NumberFormatException e) {
-            e.printStackTrace(); // Handle exceptions appropriately
+            e.printStackTrace();
         }
     }
 
-    // Method to remove a book by ID
     public void removeBookById(int bookId) {
         Iterator<Book> iterator = libraryCollection.iterator();
         while (iterator.hasNext()) {
@@ -34,7 +45,6 @@ public class LibraryManagementSystem {
         System.out.println("Book not found with ID: " + bookId);
     }
 
-    // Method to list all books
     public void listAllBooks() {
         if (libraryCollection.isEmpty()) {
             System.out.println("The library collection is empty.");
