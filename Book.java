@@ -4,6 +4,7 @@
  * Date: 1/20/2024 *
  * Description: The Book Class creates objects which are ID, title, and author. It allows user to enter an id, title and author. 
  *****************************************SC****************************************************/
+
 public class Book { // SC Introduction to Book Class.
     private int id; // SC Declaring a private integer variable id within the class. 
     private String title; // SC Declaring a private string variable title within the class.
@@ -29,10 +30,6 @@ public class Book { // SC Introduction to Book Class.
 
     @Override // SC overriding methods to ensure that your intention matches the actual behavior.
     public String toString() { // SC The toString method in Java is a method of the Object class that is intended to return a string representation of an object. 
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                '}'; // SC Representation of the Book object's state, making it useful for displaying information about the object. 
+        return id + "," + title + "," + author; // SC Representation of the Book object's state, making it useful for displaying information about the object. 
     }
 }
