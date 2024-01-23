@@ -15,32 +15,32 @@ public class LibraryManagementSystem { // SC Introduction to class LibraryManage
 
     private List<Book> libraryCollection; // SC Declaring a private instance variable named libraryCollection in a Java class. 
 
-    public LibraryManagementSystem() {
-        this.libraryCollection = new ArrayList<>();
+    public LibraryManagementSystem() { // SC Construcotr for LibraryManagementSystem.
+        this.libraryCollection = new ArrayList<>(); // SC Initialize the libraryCollection variable with a new instance of ArrayList<Book>.
     }
 
-    public void addBooksFromFile(String filePath) {
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] bookInfo = line.split(",");
-                if (bookInfo.length == 3) {
-                    int id = Integer.parseInt(bookInfo[0]);
-                    String title = bookInfo[1];
-                    String author = bookInfo[2];
-                    Book newBook = new Book(id, title, author);
-                    libraryCollection.add(newBook);
-                } else {
-                    System.out.println("Invalid book information format: " + line);
+    public void addBooksFromFile(String filePath) { // SC This method allows you to populate the library collection by reading book information from a text file. 
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) { // SC Ensures that the BufferedReader is closed properly, preventing resource leaks and providing a cleaner and more concise way of managing resources in Java.
+            String line; // SC Variable is intended to store each line read from the file during the processing of the BufferedReader within the addBooksFromFile method.
+            while ((line = br.readLine()) != null) { // SC Loop construct that reads lines from a BufferedReader (br) until the end of the file is reached (when br.readLine() returns null).
+                String[] bookInfo = line.split(","); // SC This line is often used when dealing with comma separated values where information is separated by a specific character.
+                if (bookInfo.length == 3) { // SC The condition would be false (bookInfo.length is not equal to 3), and the code inside the else block would be executed, handling the case of an invalid or incomplete line.
+                    int id = Integer.parseInt(bookInfo[0]); // SC Parses the first element of the bookInfo array into an integer. 
+                    String title = bookInfo[1]; // SC This line is part of the process of extracting information from each line of the file, where each line represents a book with an ID, title, and author. 
+                    String author = bookInfo[2]; // SC This line is responsible for extracting the author of the book from the bookInfo array.
+                    Book newBook = new Book(id, title, author); // SC This line is crucial in the process of creating Book objects from the data read from the file, and these objects can then be added to the libraryCollection for further management in the library management system.
+                    libraryCollection.add(newBook); // SC After processing all the lines in the file within the while loop, the libraryCollection would contain Book objects representing each book from the file, and the library is now populated with this information.
+                } else { // SC Else statement
+                    System.out.println("Invalid book information format: " + line); // SC Print message if invlid information format.
                 }
             }
-        } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();
+        } catch (IOException | NumberFormatException e) { // SC Handle thes exception.
+            e.printStackTrace(); // SC Print the stack trace of the caught exception (e) to the standard error stream.
         }
     }
 
-    public void removeBookById(int bookId) {
-        Iterator<Book> iterator = libraryCollection.iterator();
+    public void removeBookById(int bookId) { // SC Method to remove book from library.
+        Iterator<Book> iterator = libraryCollection.iterator(); // SC This loop iterates through the books in the libraryCollection using the iterator, and the hasNext() method checks if there are more books to iterate. 
         while (iterator.hasNext()) {
             Book book = iterator.next();
             if (book.getId() == bookId) {
