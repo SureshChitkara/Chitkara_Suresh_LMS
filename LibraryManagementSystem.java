@@ -41,24 +41,24 @@ public class LibraryManagementSystem { // SC Introduction to class LibraryManage
 
     public void removeBookById(int bookId) { // SC Method to remove book from library.
         Iterator<Book> iterator = libraryCollection.iterator(); // SC This loop iterates through the books in the libraryCollection using the iterator, and the hasNext() method checks if there are more books to iterate. 
-        while (iterator.hasNext()) {
-            Book book = iterator.next();
-            if (book.getId() == bookId) {
-                iterator.remove();
-                System.out.println("Book removed: " + book);
-                return;
+        while (iterator.hasNext()) { // SC Initiates a loop that iterates through the elements in the libraryCollection using the Iterator
+            Book book = iterator.next(); // SC The line is inside the while loop and is responsible for retrieving the next Book object from the libraryCollection using the iterator.
+            if (book.getId() == bookId) { // SC The line checks whether the ID of the current Book object (book) matches the specified bookId.
+                iterator.remove(); // SC The line used to remove the current Book object from the libraryCollection during iteration.
+                System.out.println("Book removed: " + book); // SC Print message after book has been removed.
+                return; // SC Return statement ensures that the method exits at that point.
             }
         }
-        System.out.println("Book not found with ID: " + bookId);
+        System.out.println("Book not found with ID: " + bookId); // SC Print message if the id in the while loop does not match any of book id in the collection.
     }
 
-    public void listAllBooks() {
-        if (libraryCollection.isEmpty()) {
-            System.out.println("The library collection is empty.");
-        } else {
-            System.out.println("List of Books in the Library:");
-            for (Book book : libraryCollection) {
-                System.out.println(book);
+    public void listAllBooks() { // SC Method is used to display information about all books in the library collection. 
+        if (libraryCollection.isEmpty()) { // SC condition method if library is empty.
+            System.out.println("The library collection is empty."); // SC Print message if library is empty.
+        } else { // SC Else statement
+            System.out.println("List of Books in the Library:"); // SC Print message if library has books.
+            for (Book book : libraryCollection) { // SC For loop to check book in the libraryCollection
+                System.out.println(book); // SC prints every book in the libraryCollection.
             }
         }
     }
