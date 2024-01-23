@@ -4,24 +4,24 @@
  * Date: 1/22/2024 *
  * Description: The LibraryManagementSystem class provides a set of basic operations to interact with the library collection. It serves as the foundation for a console-based library management system, and additional features or improvements can be added based on specific requirements. 
  *****************************************SC****************************************************/
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.io.BufferedReader; /* SC Import bufferedreader */
+import java.io.FileReader; /* SC Import filereader */
+import java.io.IOException; /* SC Import ioexception. */
+import java.util.ArrayList; /* SC Import arraylist */
+import java.util.Iterator; /* SC Import iterator */
+import java.util.List; /* SC Import list */
 
-public class LibraryManagementSystem { // SC Introduction to class LibraryManagementSystem 
+public class LibraryManagementSystem { /* SC Introduction to class LibraryManagementSystem */
 
-    private List<Book> libraryCollection; // SC Declaring a private instance variable named libraryCollection in a Java class. 
+    private List<Book> libraryCollection; /* SC Declaring a private instance variable named libraryCollection in a Java class. */ 
 
-    public LibraryManagementSystem() { // SC Construcotr for LibraryManagementSystem.
-        this.libraryCollection = new ArrayList<>(); // SC Initialize the libraryCollection variable with a new instance of ArrayList<Book>.
+    public LibraryManagementSystem() { /* SC Construcotr for LibraryManagementSystem. */
+        this.libraryCollection = new ArrayList<>(); /* SC Initialize the libraryCollection variable with a new instance of ArrayList<Book>. */
     }
 
-    public void addBooksFromFile(String filePath) { // SC This method allows you to populate the library collection by reading book information from a text file. 
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) { // SC Ensures that the BufferedReader is closed properly, preventing resource leaks and providing a cleaner and more concise way of managing resources in Java.
-            String line; // SC Variable is intended to store each line read from the file during the processing of the BufferedReader within the addBooksFromFile method.
+    public void addBooksFromFile(String filePath) { /* SC This method allows you to populate the library collection by reading book information from a text file. */
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) { /* SC Ensures that the BufferedReader is closed properly, preventing resource leaks and providing a cleaner and more concise way of managing resources in Java. */
+            String line; /* SC Variable is intended to store each line read from the file during the processing of the BufferedReader within the addBooksFromFile method. */
             while ((line = br.readLine()) != null) { // SC Loop construct that reads lines from a BufferedReader (br) until the end of the file is reached (when br.readLine() returns null).
                 String[] bookInfo = line.split(","); // SC This line is often used when dealing with comma separated values where information is separated by a specific character.
                 if (bookInfo.length == 3) { // SC The condition would be false (bookInfo.length is not equal to 3), and the code inside the else block would be executed, handling the case of an invalid or incomplete line.
