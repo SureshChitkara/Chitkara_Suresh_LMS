@@ -1,3 +1,9 @@
+/****************************************SC***************************************************
+ * Name: Suresh Chitkara *
+ * Course: Software Development I CEN-3024C-24667 *
+ * Date: 1/22/2024 *
+ * Description: The LibraryManagementSystem class provides a set of basic operations to interact with the library collection. It serves as the foundation for a console-based library management system, and additional features or improvements can be added based on specific requirements. 
+ *****************************************SC****************************************************/
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -5,8 +11,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class LibraryManagementSystem {
-    private List<Book> libraryCollection;
+public class LibraryManagementSystem { // SC Introduction to class LibraryManagementSystem 
+
+    private List<Book> libraryCollection; // SC Declaring a private instance variable named libraryCollection in a Java class. 
 
     public LibraryManagementSystem() {
         this.libraryCollection = new ArrayList<>();
