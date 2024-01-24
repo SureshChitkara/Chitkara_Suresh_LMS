@@ -1,3 +1,9 @@
+/****************************************SC***************************************************
+ * Name: Suresh Chitkara *
+ * Course: Software Development I CEN-3024C-24667 *
+ * Date: 1/24/2024 *
+ * Description: The books.txt contains the contents of a book such as id, title, and author. The file path is in the main class and it gets changed through the librarymanagementsystem class. 
+ *****************************************SC****************************************************/
 1,To Kill a Mockingbird,Harper Lee
 2,1984,George Orwell
 3,The Great Gatsby,F. Scott Fitzgerald
